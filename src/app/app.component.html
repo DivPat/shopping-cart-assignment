@@ -1,0 +1,5 @@
+<app-header></app-header>
+<router-outlet></router-outlet>
+<ng-container *ngIf="!(totalCartItems>0 && currentUrl==='/cart')">
+    <app-footer></app-footer>
+</ng-container>

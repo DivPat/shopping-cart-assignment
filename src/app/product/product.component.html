@@ -1,0 +1,35 @@
+<div class="products row m-1">
+    <div class="col-sm-2 categories-pane list-group pr-0">
+        <ng-container *ngFor="let category of categories">
+            <button class="list-group-item list-group-item-action" type="button" role="button" id={{category.id}}
+                (click)="filterProducts(category.id)">{{category.name}}</button>
+        </ng-container>
+    </div>
+    <div class="col-12 col-sm-10 products-view row p-0 m-0">
+        <div class="product-item p-2 col-lg-3 col-md-6 col-sm-12 d-flex flex-column "
+            *ngFor="let product of filteredProducts">
+            <h4>{{product.name}}</h4>
+            <div class="d-flex flex-row flex-sm-column d-sm-none">
+                <div class="mb-2 align-self-center">
+                    <img src="assets/{{product.imageURL}}" width="200" height="200" alt="{{product.name}}">
+                </div>
+                <div class="d-flex flex-column mt-auto d-sm-none">
+                    <p class="bg-hightlight p-1">{{product.description}}</p>
+                    <span class="buyNow d-sm-none"> <button id="{{product.id}}" class="btn btn-pink w-100" (click)="buyNow(product.id)">Buy Now @ Rs
+                            {{product.price}}</button> </span>
+                </div>
+            </div>
+            <div class="mb-2 align-self-center d-none d-sm-block">
+                <img src="assets/{{product.imageURL}}" width="200" height="200" alt="{{product.name}}">
+            </div>
+            <p class="d-none d-sm-block bg-hightlight p-1">{{product.description}}</p>
+            <div class="d-none d-sm-flex flex-column mt-auto">
+                <span class="buyNow d-none d-sm-flex justify-content-between"> MRP Rs {{product.price}} <button
+                        id="{{product.id}}" class="btn btn-pink w-50"
+                        (click)="buyNow(product.id)">Buy Now</button>
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>

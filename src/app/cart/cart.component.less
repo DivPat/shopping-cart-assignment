@@ -1,0 +1,37 @@
+@import '../../variables.less';
+
+.cartContainer {
+    background-color: @color-grey;
+    font-size:1rem;
+}
+
+.cart-header, .cart-body {
+    background-color: @color-white;
+}
+
+.cart-body{
+    height:50vh;
+    overflow-y: auto;
+}
+
+button {
+    width: 25px;
+}
+
+.noItems{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.product{
+    border-bottom: 2px solid @color-grey;
+}
+
+.checkout{
+    position: fixed;
+    bottom:0;
+    z-index:1;
+}

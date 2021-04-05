@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <ngb-carousel *ngIf="banners">
+        <ng-template ngbSlide *ngFor="let banner of banners">
+            <img  src="assets/{{banner.bannerImageUrl}}" alt="{{banner.bannerImageAlt}}">
+        </ng-template>
+    </ngb-carousel>
+    <div class="categories">
+        <div class="d-flex align-items-start" *ngFor="let category of categories; let i=index">
+                <ng-container *ngIf="i%2===0">
+                    <img src="assets/{{category.imageUrl}}" width="200" height="200" alt="{{category.key}}">
+                    <div class="d-flex flex-column m-2 align-items-center flex-grow-1">
+                        <h3>{{category.name}}</h3>
+                        <p>{{category.description}}</p>
+                        <button class="btn btn-pink w-50 align-self-center" type="button" role="button" (click)="exploreCategory(category.id)">Explore
+                            {{category.key}}</button>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="i%2!==0">
+                    <div class="d-flex flex-column m-2 align-items-center flex-grow-1">
+                        <h3>{{category.name}}</h3>
+                        <p>{{category.description}}</p>
+                        <button class="btn btn-pink w-50 align-self-center" type="button" role="button" (click)="exploreCategory(category.id)">Explore
+                            {{category.key}}</button>
+                    </div>
+                    <img src="assets/{{category.imageUrl}}" width="200" height="200" alt="{{category.key}}">
+                </ng-container>
+        </div>
+    </div>
+</div>
